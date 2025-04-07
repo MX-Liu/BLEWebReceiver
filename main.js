@@ -1,6 +1,9 @@
 // main.js
 const { app, BrowserWindow } = require('electron');
+
 app.commandLine.appendSwitch('enable-features', 'WebBluetooth');
+app.commandLine.appendSwitch('enable-experimental-web-platform-features');
+app.commandLine.appendSwitch('enable-web-bluetooth');
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -17,9 +20,6 @@ function createWindow() {
 app.whenReady().then(() => {
   createWindow();
 });
-
-app.commandLine.appendSwitch('enable-experimental-web-platform-features');
-app.commandLine.appendSwitch('enable-web-bluetooth');
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

@@ -12,10 +12,10 @@ var frameBufferSize = 4000; //data size for calculation
 
 
 var graphData = {
-    magnitude1: [], phase1: [], 
-    magnitude2: [], phase2: [], 
-    magnitude3: [], phase3: [], 
-    magnitude4: [], phase4: [], 
+    magnitude1: [], phase1: [],
+    magnitude2: [], phase2: [],
+    magnitude3: [], phase3: [],
+    magnitude4: [], phase4: [],
 
     Ax: [], Ay: [], Az: [], Gx: [], Gy: [], Gz: [],
     LightCh1: [], LightCh2: [], LightCh3: [], LightCh4: [], LightCh5: [],
@@ -26,12 +26,12 @@ var graphData = {
 
 for (i = 0; i < frameBufferSize; i++) {
     // graphData.magnitude.push(0); graphData.phase.push(0); 
-    graphData.magnitude1.push(0); graphData.phase1.push(0); 
-    graphData.magnitude2.push(0); graphData.phase2.push(0); 
-    graphData.magnitude3.push(0); graphData.phase3.push(0); 
-    graphData.magnitude4.push(0); graphData.phase4.push(0); 
+    graphData.magnitude1.push(0); graphData.phase1.push(0);
+    graphData.magnitude2.push(0); graphData.phase2.push(0);
+    graphData.magnitude3.push(0); graphData.phase3.push(0);
+    graphData.magnitude4.push(0); graphData.phase4.push(0);
 
-    graphData.Ax.push(0); graphData.Ay.push(0); graphData.Az.push(0); 
+    graphData.Ax.push(0); graphData.Ay.push(0); graphData.Az.push(0);
     graphData.Gx.push(0); graphData.Gy.push(0); graphData.Gz.push(0);
     graphData.LightCh1.push(0); graphData.LightCh2.push(0); graphData.LightCh3.push(0); graphData.LightCh4.push(0); graphData.LightCh5.push(0);
     graphData.LightCh6.push(0); graphData.LightCh7.push(0); graphData.LightCh8.push(0); graphData.LightCh9.push(0); graphData.LightCh10.push(0);
@@ -155,17 +155,17 @@ function updatePlots(indata) {
         // Update graph
         Plotly.update('plot0', {
             y: [graphData.magnitude1.slice(frameBufferSize - 200, frameBufferSize),
-                graphData.magnitude2.slice(frameBufferSize - 200, frameBufferSize),
-                graphData.magnitude3.slice(frameBufferSize - 200, frameBufferSize),
-                graphData.magnitude4.slice(frameBufferSize - 200, frameBufferSize)
+            graphData.magnitude2.slice(frameBufferSize - 200, frameBufferSize),
+            graphData.magnitude3.slice(frameBufferSize - 200, frameBufferSize),
+            graphData.magnitude4.slice(frameBufferSize - 200, frameBufferSize)
             ]
         });
 
         Plotly.update('plot1', {
             y: [graphData.phase1.slice(frameBufferSize - 200, frameBufferSize),
-                graphData.phase2.slice(frameBufferSize - 200, frameBufferSize),
-                graphData.phase3.slice(frameBufferSize - 200, frameBufferSize),
-                graphData.phase4.slice(frameBufferSize - 200, frameBufferSize)
+            graphData.phase2.slice(frameBufferSize - 200, frameBufferSize),
+            graphData.phase3.slice(frameBufferSize - 200, frameBufferSize),
+            graphData.phase4.slice(frameBufferSize - 200, frameBufferSize)
             ]
         });
     }
@@ -179,7 +179,7 @@ function updatePlots(indata) {
         graphData.Gx.push(indata.Gx);
         graphData.Gy.push(indata.Gy);
         graphData.Gz.push(indata.Gz);
-        
+
 
         // shift oldest sample to maintain frameBufferSize
         if (graphData.Ax.length > frameBufferSize) {
@@ -196,16 +196,16 @@ function updatePlots(indata) {
         // Update graph
         Plotly.update('plot2', {
             y: [graphData.Ax.slice(frameBufferSize - 200, frameBufferSize),
-                graphData.Ay.slice(frameBufferSize - 200, frameBufferSize),
-                graphData.Az.slice(frameBufferSize - 200, frameBufferSize),
+            graphData.Ay.slice(frameBufferSize - 200, frameBufferSize),
+            graphData.Az.slice(frameBufferSize - 200, frameBufferSize),
             ]
         });
 
         // Update graph
         Plotly.update('plot3', {
             y: [graphData.Gx.slice(frameBufferSize - 200, frameBufferSize),
-                graphData.Gy.slice(frameBufferSize - 200, frameBufferSize),
-                graphData.Gz.slice(frameBufferSize - 200, frameBufferSize),
+            graphData.Gy.slice(frameBufferSize - 200, frameBufferSize),
+            graphData.Gz.slice(frameBufferSize - 200, frameBufferSize),
             ]
         });
     }

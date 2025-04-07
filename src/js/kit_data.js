@@ -8,7 +8,7 @@ var IMUDataBuff = ['\n'];
 var EISDataBuff = ['\n'];
 var OSDataBuff = ['\n'];
 
-var storedata=0;
+var storedata = 0;
 var LastDataType = 0;
 
 var label = 0;
@@ -80,7 +80,7 @@ function handleData(event) {
     var mToc;
     databundle.dataID = event.target.value.getInt32(0, true);
 
-    console.log(event.target.value.getFloat32(0,true));
+    console.log(event.target.value.getFloat32(0, true));
     // console.log(event.target.value.getFloat32(8,true))
 
     if (databundle.dataID == EISID) {
@@ -171,8 +171,7 @@ function handleData(event) {
     //     download_IMU();
     //     download_EIS();
     // }
-    if(storedata == 1)
-    {
+    if (storedata == 1) {
         storedata = 0;
         download_IMU();
     }
@@ -225,9 +224,9 @@ function download_EIS() {
 }
 
 
-function updataLabel(){
+function updataLabel() {
     label = activityLabel;
 }
- 
+
 
 
