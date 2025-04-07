@@ -1,0 +1,375 @@
+
+  <style>
+  body {
+  /*background-color: #000001;*/
+  background-color: #999999;
+  }
+  body,h1, p{font-size: 10px;margin: 16;background: #ffffff;color: #000001;font-family: 'Source Sans Pro', sans-serif;}
+  p {font-size: 15px; text-align: center;}
+  h1 {font-size: 30px;}
+  #ConnectButton {
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 240px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+    opacity: 0.8;
+  }
+  #ConnectButton:hover {
+    opacity: 1;
+  }
+
+  #ConnectButton:active {transform: scale(0.9);}
+
+  #LocalButton {
+    background-color: orange; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 4px; margin: 4px 10px; height: 20px; width: 60px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+  }
+  #LocalButton:active {transform: scale(0.9);}
+  #WearIndicator {
+    background-color: green; border: none; color: black; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 10px 10px; height: 20px; width: 60px;
+    border-radius: 10%; outline:none; font-family: 'Open Sans', sans-serif;
+  }
+  #BatIndicator {
+    background-color: green; border: none; color: black; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 20px; width: 60px;
+    border-radius: 10%; outline:none; font-family: 'Open Sans', sans-serif; color: white;
+  }
+  #EIS_Start{
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 120px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif; 
+    opacity: 0.8;
+  }
+  #EIS_Start:hover {
+    opacity: 1;
+  }
+  #EIS_Start:active {
+            transform: scale(0.9); /* Scaling button to 0.98 to its original size */
+  }
+  #CV_Start{
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 120px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+    opacity: 0.8;
+  }
+  #CV_Start:hover {
+    opacity: 1;
+  }
+  #CV_Start:active {
+            transform: scale(0.9); /* Scaling button to 0.98 to its original size */
+  }
+
+
+  #Optical_Start{
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 120px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+    opacity: 0.8;
+  }
+  #Optical_Start:hover {
+    opacity: 1;
+  }
+  #Optical_Start:active {
+            transform: scale(0.9); /* Scaling button to 0.98 to its original size */
+  }
+
+/************************************/
+/**********Label Button**************/
+/************************************/
+
+  #box{
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 120px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+    opacity: 0.8;
+  }
+
+  #box:hover {
+    opacity: 1;
+  }
+  #box:active {
+            transform: scale(0.9); /* Scaling button to 0.98 to its original size */
+  }
+
+
+
+  #others{
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 120px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+    opacity: 0.8;
+  }
+
+  #others:hover {
+    opacity: 1;
+  }
+  #others:active {
+            transform: scale(0.9); /* Scaling button to 0.98 to its original size */
+  }
+
+  
+  #biceps{
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 120px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+    opacity: 0.8;
+  }
+
+  #biceps:hover {
+    opacity: 1;
+  }
+  #biceps:active {
+            transform: scale(0.9); /* Scaling button to 0.98 to its original size */
+  }
+
+
+
+  #chestPress{
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 120px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+    opacity: 0.8;
+  }
+
+  #chestPress:hover {
+    opacity: 1;
+  }
+  #chestPress:active {
+            transform: scale(0.9); /* Scaling button to 0.98 to its original size */
+  }
+
+
+  #shoulder{
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 120px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+    opacity: 0.8;
+  }
+
+  #shoulder:hover {
+    opacity: 1;
+  }
+  #shoulder:active {
+            transform: scale(0.9); /* Scaling button to 0.98 to its original size */
+  }
+
+
+
+  #armShoulder{
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 120px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+    opacity: 0.8;
+  }
+
+  #armShoulder:hover {
+    opacity: 1;
+  }
+  #armShoulder:active {
+            transform: scale(0.9); /* Scaling button to 0.98 to its original size */
+  }
+
+
+  #armOpen{
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 120px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+    opacity: 0.8;
+  }
+
+  #armOpen:hover {
+    opacity: 1;
+  }
+  #armOpen:active {
+            transform: scale(0.9); /* Scaling button to 0.98 to its original size */
+  }
+
+
+  #squats{
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 120px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+    opacity: 0.8;
+  }
+
+  #squats:hover {
+    opacity: 1;
+  }
+  #squats:active {
+            transform: scale(0.9); /* Scaling button to 0.98 to its original size */
+  }
+
+  #lunge{
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 120px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+    opacity: 0.8;
+  }
+
+  #lunge:hover {
+    opacity: 1;
+  }
+  #lunge:active {
+            transform: scale(0.9); /* Scaling button to 0.98 to its original size */
+  }
+
+
+  #legRaise{
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 120px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+    opacity: 0.8;
+  }
+
+  #legRaise:hover {
+    opacity: 1;
+  }
+  #legRaise:active {
+            transform: scale(0.9); /* Scaling button to 0.98 to its original size */
+  }
+
+  #walking{
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 120px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+    opacity: 0.8;
+  }
+
+  #walking:hover {
+    opacity: 1;
+  }
+  #walking:active {
+            transform: scale(0.9); /* Scaling button to 0.98 to its original size */
+  }
+
+
+
+
+
+
+
+
+
+  
+
+  #Read_All{
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 120px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+    opacity: 0.8;
+  }
+  #Read_All:hover {
+    opacity: 1;
+  }
+  #Read_All:active {
+            transform: scale(0.9); /* Scaling button to 0.98 to its original size */
+  }
+
+  #create{
+    background-color: green; border: none; color: white; padding: 1px; text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 240px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+    opacity: 0.8;
+  }
+  #create:hover {
+    opacity: 1;
+  }
+  #create:active {
+            transform: scale(0.9); /* Scaling button to 0.98 to its original size */
+  }
+  #filename{
+    text-align: center;
+    text-decoration: none; font-size: 16px; margin: 4px 10px; height: 30px; width: 120px;
+    border-radius: 1%; outline:none; font-family: 'Open Sans', sans-serif;
+  }
+ 
+ .container {
+  display: grid; 
+  grid-auto-flow: row dense; 
+  grid-template-columns: 50% 1fr; 
+  grid-template-rows: 1fr 1fr; 
+  gap: 20px 20px; 
+  grid-template-areas:W 
+    ". . . ."
+    ". . . ."
+    ". . . ."; 
+  }
+  .widget{
+  border-style: solid; 
+  border-color: #000001;
+  border-width: 0.1pt;
+  height:100%;
+  width: 100%;
+  }
+  .plot{
+  height:250pt;
+  width: 100%;
+  color: #000001;
+  }
+
+  .slidecontainer {
+  width: 100%;
+  }
+
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 20px;
+    background: #333333;
+    outline: none;
+    opacity: 0.8;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+
+  .slider:hover {
+    opacity: 1;
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: var(--thumb-color, #04AA6D);
+    cursor: pointer;
+  }
+  
+
+  .anybutton {
+    top:3%;
+    left:10%;
+    width:260px;
+    height:160px;
+    position: absolute;
+    z-index: 2;
+    background: transparent; 
+    display: grid; 
+    grid-auto-flow: row dense; 
+    grid-template-columns: 100% 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 10px 10px; 
+    grid-template-areas:W 
+        ". . . . . . ."
+    }
+
+    .labelbutton {
+        top:70%;
+        left:3%;
+        width:260px;
+        height:160px;
+        position: relative;
+        z-index: 2;
+        background: transparent; 
+        display: grid; 
+        grid-auto-flow: row dense; 
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
+        grid-template-rows: 1fr 1fr; 
+        gap: 10px 10px; 
+        grid-template-areas:W 
+            ". . . . . ."
+            ". . . . . ."
+    }
+
+  </style>
