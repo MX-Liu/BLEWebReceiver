@@ -4,11 +4,11 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="kit_data.js"></script>
-    <script src="kit_vis.js"></script>
-    <script src="kit_ble.js"></script>
+    <script src="src/js/kit_data.js"></script>
+    <script src="src/js/kit_vis.js"></script>
+    <script src="src/js/kit_ble.js"></script>
 
-    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="src/css/mystyle.css">
 
 </head>
 
@@ -55,23 +55,23 @@
 
 
     <div style="display: inline; width:1200pt; height:600pt "></div>
-        <div class="labelbutton">
-            <button id="others">Null </button>
-            <button id="box">Box</button>
-            <button id="biceps">Biceps curl</button>
-            <button id="chestPress">Chest Press</button>
-            <button id="shoulder">Shoulder+Chest Press</button>
-            <button id="armShoulder">Arm holder + shoulder press</button>
-            <button id="armOpen">Arm open</button>
+    <div class="labelbutton">
+        <button id="others">Null </button>
+        <button id="box">Box</button>
+        <button id="biceps">Biceps curl</button>
+        <button id="chestPress">Chest Press</button>
+        <button id="shoulder">Shoulder+Chest Press</button>
+        <button id="armShoulder">Arm holder + shoulder press</button>
+        <button id="armOpen">Arm open</button>
 
-            <button id="squats">Squats</button>
-            <button id="lunge">Lunge</button>
-            <button id="legRaise">Leg Raise</button>
-            <button id="walking">Arm open</button>
-            
-            <div style="display: inline-block;margin-left: 14px; font-size: 20px;" id="labelText">Activity Label</div>
+        <button id="squats">Squats</button>
+        <button id="lunge">Lunge</button>
+        <button id="legRaise">Leg Raise</button>
+        <button id="walking">Arm open</button>
 
-        </div>
+        <div style="display: inline-block;margin-left: 14px; font-size: 20px;" id="labelText">Activity Label</div>
+
+    </div>
     </div>
 
 </body>
@@ -129,72 +129,72 @@
 
     });
 
-    others.addEventListener('click', function(event) {
+    others.addEventListener('click', function (event) {
         activityLabel = 0;
         labelText.textContent = "Activity Label:\n" + activityLabel + ": Null";
         others.getElementById
-        
+
     });
 
-    box.addEventListener('click', function(event) {
+    box.addEventListener('click', function (event) {
         activityLabel = 1;
         labelText.textContent = "Activity Label:\n" + activityLabel + ": Box";
         updataLabel();
     });
 
-    biceps.addEventListener('click', function(event) {
+    biceps.addEventListener('click', function (event) {
         activityLabel = 2;
         labelText.textContent = "Activity Label:\n" + activityLabel + ": Biceps curl";
         updataLabel();
-        
+
         updataLabel();
     });
 
 
-    chestPress.addEventListener('click', function(event) {
+    chestPress.addEventListener('click', function (event) {
         activityLabel = 3;
         labelText.textContent = "Activity Label:\n" + activityLabel + ": Chest Press";
         updataLabel();
     });
 
-    shoulder.addEventListener('click', function(event) {
+    shoulder.addEventListener('click', function (event) {
         activityLabel = 4;
         labelText.textContent = "Activity Label:\n" + activityLabel + ": shoulder + Chest Press";
         updataLabel();
     });
 
 
-    armShoulder.addEventListener('click', function(event) {
+    armShoulder.addEventListener('click', function (event) {
         activityLabel = 5;
         labelText.textContent = "Activity Label:\n" + activityLabel + ": Arm + Shoulder Press";
         updataLabel();
     });
 
-    armOpen.addEventListener('click', function(event) {
+    armOpen.addEventListener('click', function (event) {
         activityLabel = 6;
         labelText.textContent = "Activity Label:\n" + activityLabel + ": Arm Open";
         updataLabel();
     });
 
-    squats.addEventListener('click', function(event) {
+    squats.addEventListener('click', function (event) {
         activityLabel = 7;
         labelText.textContent = "Activity Label:\n" + activityLabel + ": Squats";
         updataLabel();
     });
 
-    lunge.addEventListener('click', function(event) {
+    lunge.addEventListener('click', function (event) {
         activityLabel = 8;
         labelText.textContent = "Activity Label:\n" + activityLabel + ": Lunge";
         updataLabel();
     });
 
-    legRaise.addEventListener('click', function(event) {
+    legRaise.addEventListener('click', function (event) {
         activityLabel = 9;
         labelText.textContent = "Activity Label:\n" + activityLabel + ": Leg Raise";
         updataLabel();
     });
 
-    walking.addEventListener('click', function(event) {
+    walking.addEventListener('click', function (event) {
         activityLabel = 10;
         labelText.textContent = "Activity Label:\n" + activityLabel + ": Walking";
         updataLabel();
@@ -221,18 +221,18 @@
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
-// async function demo() {
-//   while(1){
-//   //setTimeout(handleDataLocal(), 1000);  
-//   await sleep(50);
-// //   handleDataLocal();
-//   }
-// }
+    // async function demo() {
+    //   while(1){
+    //   //setTimeout(handleDataLocal(), 1000);
+    //   await sleep(50);
+    // //   handleDataLocal();
+    //   }
+    // }
 
-// const LocalButton = document.getElementById('LocalButton');
-// LocalButton.addEventListener('click', function(event) {
-//   download();
-// });
+    // const LocalButton = document.getElementById('LocalButton');
+    // LocalButton.addEventListener('click', function(event) {
+    //   download();
+    // });
 
 </script>
 

@@ -1,0 +1,33 @@
+{
+  "name": "blewebreceiver",
+  "version": "1.0.0",
+  "description": "1. Please use the chrome open the dashboard UI.html 2. Click to connect the bluetooth device (biosensing), then the data is receiving. 3. please input the file name which you want store the sensor data 4. After finish the experiment, please click the button to download the data.",
+  "main": "main.js",
+  "devDependencies": {
+    "electron": "^35.1.4",
+    "electron-builder": "^26.0.12"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.example.blewebapp",
+    "productName": "BLEWebApp",
+    "directories": {
+      "buildResources": "build",
+      "output": "release"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MX-Liu/BLEWebReceiver.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MX-Liu/BLEWebReceiver/issues"
+  },
+  "homepage": "https://github.com/MX-Liu/BLEWebReceiver#readme"
+}
