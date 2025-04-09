@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="kit_data.js"></script>
+    <script src="kit_vis.js"></script>
+    <script src="kit_ble.js"></script>
+
+    <link rel="stylesheet" href="mystyle.css">
+
+</head>
+
+<body>
+    <h1>Data Logger</h1>
+    <!-- <p> a Demo by <a href="https://www.dfki.de" target=”_blank”>DFKI</a></p> -->
+    <div style="display: inline; width:1200pt; height:600pt ">
+        <div style="float: left;width:100%;height:100%;border-color: #333333;border-style: solid;border-width: 0;"
+            class="container">
+            <div class="widget">
+                <p>Magnitude (Ohm)</p>
+                <div class="plot" id="plot0"></div>
+            </div>
+
+            <div class="widget">
+                <p>Phase (degree)</p>
+                <div class="plot" id="plot1"></div>
+            </div>
+
+            <div class="widget">
+                <p>Accelerator (m/s*s)</p>
+                <div class="plot" id="plot2"></div>
+            </div>
+
+            <div class="widget">
+                <p>Gyroscope (degree/s)</p>
+                <div class="plot" id="plot3"></div>
+            </div>
+
+        </div>
+
+        <div class="anybutton">
+            <div style="display: inline-block;margin-left: 12px; font-size: 20px;" id="infoBar">BLE Status</div>
+            <button id="ConnectButton">Click to Connect Bluetooth </button>
+            <button id="CV_Start">Start</button>
+            <!-- <button id="EIS_Start">EIS Start</button>
+        <button id="Optical_Start">Optical Start</button>
+        <button id="Read_All">Read All</button> -->
+            <button id="create">Download</button>
+            <input type="text" id="filename" name="filename">
+        </div>
+
+    </div>
+
+
+    <div style="display: inline; width:1200pt; height:600pt "></div>
+        <div class="labelbutton">
+            <button id="others">Null </button>
+            <button id="box">Box</button>
+            <button id="biceps">Biceps curl</button>
+            <button id="chestPress">Chest Press</button>
+            <button id="shoulder">Shoulder+Chest Press</button>
+            <button id="armShoulder">Arm holder + shoulder press</button>
+            <button id="armOpen">Arm open</button>
+
+            <button id="squats">Squats</button>
+            <button id="lunge">Lunge</button>
+            <button id="legRaise">Leg Raise</button>
+            <button id="walking">Arm open</button>
+            
+            <div style="display: inline-block;margin-left: 14px; font-size: 20px;" id="labelText">Activity Label</div>
+
+        </div>
+    </div>
+
+</body>
+<script type='text/javascript'>
+
+
+    var create = document.getElementById('create');
+    create.addEventListener('click', function () {
+        downloadRecording();
+        File_Name = FileName.value;
+        download_EIS();
+    });
+
+    var graphWindow = 100; // window size for plotting
+    // BLE device
+    var myDevice;
+    var myCharacteristics;
+    var myCharTX;
+    var myCharRX;
+    var mTic = new Date().getTime();
+    var counter = 1;
+
+    const ConnectButton = document.getElementById('ConnectButton');
+    const infoBar = document.getElementById('infoBar');
+    const labelText = document.getElementById('labelText');
+
+    var mConnected = 0;
+    if ("bluetooth" in navigator) {
+        ConnectButton.addEventListener('click', function (event) {
+            connect(); //kis_ble.js
+            mConnected = 1;
+        });
+    } else { // else the browser doesn't support bluetooth
+        status("browser not supported"); ConnectButton.style.backgroundColor = "red";
+        alert("Error: This browser doesn't support Web Bluetooth. Try using Chrome.");
+    }
+
+ 
+    function start(){
+        myCharRX.addEventListener('characteristicvaluechanged', handleData);
+        startWebcamRecording();
+        console.log('Start');
+    }
+    CV_Start.addEventListener('click', function (event) {
+            start(); //kis_ble.js
+            // mConnected = 1;
+    });
+    // command buttons send to BLE TX
+    const CVStart = document.getElementById('CV_Start');
+    // const EISStart = document.getElementById('EIS_Start');
+    // const OSStart = document.getElementById('Optical_Start');
+    // const ReadAll = document.getElementById("Read_All");
+    const FileName = document.getElementById("filename");
+
+    var mCMDqueued = 0;
+    var mCMD = "";
+    var measurementType = 0;
+    var File_Name = "";
+    var activityLabel;
+
+    CVStart.addEventListener('click', function (event) {
+        mCMD = "C";
+        myCharTX.writeValue(encoder.encode(mCMD));
+        File_Name = FileName.value;
+
+    });
+
+    others.addEventListener('click', function(event) {
+        activityLabel = 0;
+        labelText.textContent = "Activity Label:\n" + activityLabel + ": Null";
+        others.getElementById
+        
+    });
+
+    box.addEventListener('click', function(event) {
+        activityLabel = 1;
+        labelText.textContent = "Activity Label:\n" + activityLabel + ": Box";
+        updataLabel();
+    });
+
+    biceps.addEventListener('click', function(event) {
+        activityLabel = 2;
+        labelText.textContent = "Activity Label:\n" + activityLabel + ": Biceps curl";
+        updataLabel();
+        
+        updataLabel();
+    });
+
+
+    chestPress.addEventListener('click', function(event) {
+        activityLabel = 3;
+        labelText.textContent = "Activity Label:\n" + activityLabel + ": Chest Press";
+        updataLabel();
+    });
+
+    shoulder.addEventListener('click', function(event) {
+        activityLabel = 4;
+        labelText.textContent = "Activity Label:\n" + activityLabel + ": shoulder + Chest Press";
+        updataLabel();
+    });
+
+
+    armShoulder.addEventListener('click', function(event) {
+        activityLabel = 5;
+        labelText.textContent = "Activity Label:\n" + activityLabel + ": Arm + Shoulder Press";
+        updataLabel();
+    });
+
+    armOpen.addEventListener('click', function(event) {
+        activityLabel = 6;
+        labelText.textContent = "Activity Label:\n" + activityLabel + ": Arm Open";
+        updataLabel();
+    });
+
+    squats.addEventListener('click', function(event) {
+        activityLabel = 7;
+        labelText.textContent = "Activity Label:\n" + activityLabel + ": Squats";
+        updataLabel();
+    });
+
+    lunge.addEventListener('click', function(event) {
+        activityLabel = 8;
+        labelText.textContent = "Activity Label:\n" + activityLabel + ": Lunge";
+        updataLabel();
+    });
+
+    legRaise.addEventListener('click', function(event) {
+        activityLabel = 9;
+        labelText.textContent = "Activity Label:\n" + activityLabel + ": Leg Raise";
+        updataLabel();
+    });
+
+    walking.addEventListener('click', function(event) {
+        activityLabel = 10;
+        labelText.textContent = "Activity Label:\n" + activityLabel + ": Walking";
+        updataLabel();
+    });
+
+
+    // OSStart.addEventListener('click', function(event) {
+    //   mCMD = "S";
+    //   myCharTX.writeValue(encoder.encode(mCMD));
+    //   File_Name = FileName.value;
+
+    // });
+
+    // ReadAll.addEventListener('click', function(event) {
+    //   mCMD = "A";
+    //   myCharTX.writeValue(encoder.encode(mCMD));
+    //   File_Name = FileName.value;
+    // });
+
+
+    // initialize
+    initGraph();
+    // f_hello();
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+// async function demo() {
+//   while(1){
+//   //setTimeout(handleDataLocal(), 1000);  
+//   await sleep(50);
+// //   handleDataLocal();
+//   }
+// }
+
+// const LocalButton = document.getElementById('LocalButton');
+// LocalButton.addEventListener('click', function(event) {
+//   download();
+// });
+
+</script>
+
+</html>
